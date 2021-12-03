@@ -7,7 +7,9 @@ module.exports = {
      * @returns {string[]}
      */
     readLines(path) {
-        return fs.readFileSync(path, 'utf-8').split('\n');
+        return fs.readFileSync(path, 'utf-8')
+            .split('\n')
+            .filter(l => l.length > 0);
     },
 
     /**
