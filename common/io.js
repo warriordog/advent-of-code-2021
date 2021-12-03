@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports = {
     /**
      * Reads all lines from a file as strings
-     * @param path
+     * @param {string} path
      * @returns {string[]}
      */
     readLines(path) {
@@ -14,7 +14,7 @@ module.exports = {
 
     /**
      * Reads a list of integers from a file
-     * @param path
+     * @param {string} path
      * @returns {number[]}
      */
     readInts(path) {
