@@ -6,7 +6,13 @@
   "scripts": {
     "day1": "npm run day1:part1 && npm run day1:part2",
     "day1:part1": "node day01/day1part1.js",
-    "day1:part2": "node day01/day1part2.js"
+    "day1:part2": "node day01/day1part2.js",
+    "day2": "npm run day2:part1 && npm run day2:part2",
+    "day2:part1": "node day02/day2part1.js",
+    "day2:part2": "node day02/day2part2.js",
+    "day3": "npm run day3:part1 && npm run day3:part2",
+    "day3:part1": "node day03/day3part1.js",
+    "day3:part2": "node day03/day3part2.js"
   },
   "keywords": [
     "AOC",
