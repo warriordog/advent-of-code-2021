@@ -12,7 +12,10 @@
     "day2:part2": "node day02/day2part2.js",
     "day3": "npm run day3:part1 && npm run day3:part2",
     "day3:part1": "node day03/day3part1.js",
-    "day3:part2": "node day03/day3part2.js"
+    "day3:part2": "node day03/day3part2.js",
+    "day4": "npm run day4:part1 && npm run day4:part2",
+    "day4:part1": "node day04/day4part1.js",
+    "day4:part2": "node day04/day4part2.js"
   },
   "keywords": [
     "AOC",
