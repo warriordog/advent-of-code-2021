@@ -9,4 +9,4 @@ module.exports = {
                 arg: parseInt(line[1])
             }));
     }
-}
+};

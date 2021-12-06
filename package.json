@@ -4,6 +4,8 @@
   "description": "Solutions to Advent of Code 2021",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
     "day1": "npm run day1:part1 && npm run day1:part2",
     "day1:part1": "node day01/day1part1.js",
     "day1:part2": "node day01/day1part2.js",

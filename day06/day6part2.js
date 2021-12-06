@@ -15,7 +15,7 @@ function simulate(days) {
         const newFish = daysRemaining.shift();
 
         // Add new fish (replace the spot that was popped off)
-        daysRemaining.push(newFish)
+        daysRemaining.push(newFish);
 
         // Reset the fish
         daysRemaining[spawnTime - 1] += newFish;

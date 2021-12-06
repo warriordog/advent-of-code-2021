@@ -1,4 +1,4 @@
-const io = require("../common/io")
+const io = require("../common/io");
 
 module.exports = {
     /**
@@ -46,4 +46,4 @@ module.exports = {
             // If the result is negative, then the MCB is 0.
             .map(weight => weight >= 0 ? 1 : 0);
     }
-}
+};

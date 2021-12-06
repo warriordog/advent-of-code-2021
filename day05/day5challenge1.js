@@ -28,7 +28,7 @@ function addLine(line) {
     do {
         increment(x, y);
 
-        x += xInc
+        x += xInc;
         y += yInc;
 
         // Hacky special case to handle inclusive ending points
