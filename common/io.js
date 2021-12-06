@@ -19,5 +19,17 @@ module.exports = {
      */
     readInts(path) {
         return this.readLines(path).map(l => parseInt(l));
+    },
+
+    /**
+     * Reads a list of integers from a single line
+     * @param {string} path
+     * @returns {number[]}
+     */
+    readIntsLine(path) {
+        return Array.from(fs.readFileSync(path, 'utf-8').matchAll(/\d+/gm))
+            .flatMap(match => match[0])
+            .map(n => parseInt(n))
+        ;
     }
 };
