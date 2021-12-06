@@ -37,6 +37,8 @@ module.exports = {
         return line.x1 === line.x2 || line.y1 === line.y2;
     },
 
+    computeIncrement,
+
     /**
      * Stores a 2-dimensional sparse grid of numbers
      */
