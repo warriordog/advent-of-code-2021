@@ -26,7 +26,8 @@
     "day5:challenge2": "node day05/day5challenge2.js",
     "day6": "npm run day6:part1 && npm run day6:part2",
     "day6:part1": "node day06/day6part1.js",
-    "day6:part2": "node day06/day6part2.js"
+    "day6:part2": "node day06/day6part2.js",
+    "day6:challenge": "node day06/day6challenge.js"
   },
   "keywords": [
     "AOC",
