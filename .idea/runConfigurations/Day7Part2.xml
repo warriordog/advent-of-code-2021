@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Day7Part2" type="NodeJSConfigurationType" path-to-js-file="day7part2.js" working-dir="$PROJECT_DIR$/day07">
+    <method v="2" />
+  </configuration>
+</component>
