@@ -30,7 +30,10 @@
     "day6:challenge": "cd day06 && node day6challenge.js",
     "day7": "npm run --silent day7:part1 && npm run --silent day7:part2",
     "day7:part1": "cd day07 && node day7part1.js",
-    "day7:part2": "cd day07 && node day7part2.js"
+    "day7:part2": "cd day07 && node day7part2.js",
+    "day8": "npm run --silent day8:part1 && npm run --silent day8:part2",
+    "day8:part1": "cd day08 && node day8part1.js",
+    "day8:part2": "cd day08 && node day8part2.js"
   },
   "keywords": [
     "AOC",
