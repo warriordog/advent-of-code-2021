@@ -11,7 +11,7 @@ const numDigitsMap = {
 };
 
 /** @type {{ patterns: string[][], outputs: string[][]}[]} */
-const inputs = io.readLines('test.txt')
+const inputs = io.readLines('input.txt')
     .map(entry => {
         const [ patterns, outputs ] = entry.split('|');
         return {
@@ -26,7 +26,8 @@ let occurrences = 0;
 for (const input of inputs) {
     for (const output of input.outputs) {
         const digits = output.length;
-        if (numDigitsMap[digits]) {
+        const possibleDigits = numDigitsMap[digits];
+        if (possibleDigits && possibleDigits.length === 1) {
             occurrences++;
         }
     }

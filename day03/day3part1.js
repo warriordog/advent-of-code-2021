@@ -1,7 +1,7 @@
 const parse = require('./day3parse.js');
 
 // Read input and compute MCBs
-const bits = parse.loadBits('test.txt');
+const bits = parse.loadBits('input.txt');
 const pivot = parse.pivotBits(bits);
 const mcbs = parse.getMostCommonBits(pivot);
 
