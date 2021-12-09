@@ -33,6 +33,8 @@ These are my solutions to the (ongoing) 2021 [Advent of Code](https://adventofco
 
 | Challenge | Day | Part | Level | Notes | Solution |
 | --- | --- | --- | --- | --- | --- |
+| [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 4 | * | 900-15 | [Notes](day04/day4challenge.md) | [Solution](day04/day4challenge1.js)
+| [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 4 | * | 3600-30 | [Notes](day04/day4challenge.md) | [Solution](day04/day4challenge2.js)
 | [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 5 | * | 20000-6400 |[Notes](day05/day5challenge.md) | [Solution](day05/day5challenge1.js) |
 | [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 5 | * | 50000-10000 |[Notes](day05/day5challenge.md) | [Solution](day05/day5challenge2.js) |
 | [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 6 | 2 | 9999999 | [Notes](day06/day6challenge.md) | [Solution](day06/day6challenge.js)

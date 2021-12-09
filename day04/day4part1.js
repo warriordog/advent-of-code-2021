@@ -1,4 +1,4 @@
-const { parseInput, markNumber, hasWon } = require('./day4common.js');
+const { parseInput, markNumber, hasWon, countUnmarked } = require('./day4common.js');
 const { numbers, boards } = parseInput('input.txt');
 
 /** @type {import('./day4common.js').Board | null} */
@@ -30,14 +30,6 @@ if (!winningBoard) {
 }
 
 // Add up all the unmarked cells
-const boardSum = winningBoard.reduce((sum, row) => {
-    for (const cell of row) {
-        if (!cell.marked) {
-            sum += cell.num;
-        }
-    }
-    return sum;
-}, 0);
-
+const boardSum = countUnmarked(winningBoard);
 const score = boardSum * lastNumber;
 console.log(`Day4 Part1: Score=[${ score }] Sum=${ boardSum } Num=${ lastNumber }`);
