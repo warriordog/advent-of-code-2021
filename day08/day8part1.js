@@ -33,4 +33,4 @@ for (const input of inputs) {
     }
 }
 
-console.log(`Day8 Part1: The answer is ${ occurrences }.`);
+console.log(`Day8 Part1: There are [${ occurrences }] occurrences.`);

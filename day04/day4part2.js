@@ -47,6 +47,6 @@ const boardSum = losingBoard.reduce((sum, row) => {
     }
     return sum;
 }, 0);
-const score = boardSum * lastNumber;
 
-console.log(`Day4 Part2: Score=[${ score }] Sum=[${ boardSum }] Num=[${ lastNumber }]`);
+const score = boardSum * lastNumber;
+console.log(`Day4 Part2: Score=[${ score }] Sum=${ boardSum } Num=${ lastNumber }`);

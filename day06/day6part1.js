@@ -28,4 +28,4 @@ function simulate(days) {
 
 simulate(80);
 
-console.log(`Day6 Part1: After 80 days, there are ${ fish.length } fish.`);
+console.log(`Day6 Part1: After 80 days, there are [${ fish.length }] fish.`);

@@ -6,4 +6,4 @@ readLines('input.txt').forEach(line => grid.applyLine(line));
 
 // Find all the points with 2+ vents
 const overlap = grid.getPoints().filter(p => p.value >= 2);
-console.log(`Day5 Part2: There are ${ overlap.length } points of overlap.`);
+console.log(`Day5 Part2: There are [${ overlap.length }] points of overlap.`);

@@ -9,4 +9,4 @@ for (const depth of depths) {
     lastDepth = depth;
 }
 
-console.log(`Day1 Part1: There are ${ increases } increases.`);
+console.log(`Day1 Part1: There are [${ increases }] increases.`);

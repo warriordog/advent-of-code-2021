@@ -42,4 +42,4 @@ for (let target = targetMin; target <= targetMax; target++) {
 
 // Find the cheapest move
 const cheapestMove = moveCosts.reduce((best, move) => move.cost < best.cost ? move : best, moveCosts[0]);
-console.log(`Day7 Part2: The cheapest position is [${ cheapestMove.target }], costing [${ cheapestMove.cost }] fuel.`);
+console.log(`Day7 Part2: The cheapest position is ${ cheapestMove.target }, costing [${ cheapestMove.cost }] fuel.`);

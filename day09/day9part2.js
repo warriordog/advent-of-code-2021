@@ -127,4 +127,4 @@ const b0Size = basins[0].length;
 const b1Size = basins[1].length;
 const b2Size = basins[2].length;
 const result = b0Size * b1Size * b2Size;
-console.log(`Day9 Part2: Found [${ basins.length }] basins, the largest are [${ b0Size }], [${ b1Size }], and [${ b2Size }]. The product is [${ result }].`);
+console.log(`Day9 Part2: Found ${ basins.length } basins, the largest are ${ b0Size }, ${ b1Size }, and ${ b2Size }. The product is [${ result }].`);

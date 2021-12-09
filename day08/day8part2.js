@@ -166,4 +166,4 @@ const inputs = io.readLines('input.txt')
 
 // Solve all inputs and add them up
 const sum = inputs.reduce((sum, input) => sum + decodeInput(input), 0);
-console.log(`Day8 Part2: The answer is ${ sum }.`);
+console.log(`Day8 Part2: The output is [${ sum }].`);

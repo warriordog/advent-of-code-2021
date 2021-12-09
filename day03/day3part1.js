@@ -24,4 +24,4 @@ const gamma = parseInt(gammaBits.join(''), 2);
 const epsilon = parseInt(epsilonBits.join(''), 2);
 
 const power = gamma * epsilon;
-console.log(`Day3 Part1: Gamma=[${ gamma }] Epsilon=[${ epsilon }] Power=[${ power }]`);
+console.log(`Day3 Part1: Gamma=${ gamma } Epsilon=${ epsilon } Power=[${ power }]`);

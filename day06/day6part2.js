@@ -25,4 +25,4 @@ function simulate(days) {
 simulate(256);
 
 const count = daysRemaining.reduce((sum, n) => sum + n, 0n);
-console.log(`Day6 Part2: After 256 days, there are ${ count } fish.`);
+console.log(`Day6 Part2: After 256 days, there are [${ count }] fish.`);

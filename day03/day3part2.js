@@ -31,4 +31,4 @@ const oxygen = parseInt(oxyBits[0].join(''), 2);
 const co2 = parseInt(co2Bits[0].join(''), 2);
 
 const life = oxygen * co2;
-console.log(`Day3 Part2: Oxygen=[${ oxygen }] CO2=[${ co2 }] Life=[${ life }]`);
+console.log(`Day3 Part2: Oxygen=${ oxygen } CO2=${ co2 } Life=[${ life }]`);

@@ -19,4 +19,4 @@ for (const depth of windows) {
     lastDepth = depth;
 }
 
-console.log(`Day1 Part2: There are ${ increases } increases.`);
+console.log(`Day1 Part2: There are [${ increases }] increases.`);

@@ -42,4 +42,4 @@ for (let x = 0; x < locations.length; x++){
     }
 }
 
-console.log(`Day9 Part1: There are [${ lowPoints }] low points for a risk level of [${ riskLevel }].`);
+console.log(`Day9 Part1: There are ${ lowPoints } low points for a risk level of [${ riskLevel }].`);

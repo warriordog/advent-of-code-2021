@@ -21,4 +21,4 @@ inputs.forEach(input => {
 });
 
 const result = position * depth;
-console.log(`Day2 Part2: Position=[${ position }] Depth=[${ depth }] Result=[${ result }]`);
+console.log(`Day2 Part2: Position=${ position } Depth=${ depth } Result=[${ result }]`);
