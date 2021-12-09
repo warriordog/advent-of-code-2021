@@ -10,8 +10,9 @@ These are my solutions to the (ongoing) 2021 [Advent of Code](https://adventofco
 ## Running
 * Through the command line:
   * Run all solutions: `npm run all`.
-  * Run a specific day: `npm run dayN` where N is a day number starting from 1.
-  * Run a specific part: `npm run dayN:partM` where N is a day number and M is 1 or 2.
+  * Run a specific day: `npm run dayD` where D is a day number starting from 1.
+  * Run a specific part: `npm run dayD:partP` where D is a day number and P is 1 or 2.
+  * Run a challenge: `npm run dayD:challenge:C` where D is a day number and C is a challenge number.
 * Through WebStorm IDE:
   * Select the desired day and part from the "run" menu at the top right, then press the green "play" button.
 
@@ -37,4 +38,4 @@ These are my solutions to the (ongoing) 2021 [Advent of Code](https://adventofco
 | [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 4 | * | 3600-30 | [Notes](day04/day4challenge.md) | [Solution](day04/day4challenge2.js)
 | [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 5 | * | 20000-6400 |[Notes](day05/day5challenge.md) | [Solution](day05/day5challenge1.js) |
 | [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 5 | * | 50000-10000 |[Notes](day05/day5challenge.md) | [Solution](day05/day5challenge2.js) |
-| [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 6 | 2 | 9999999 | [Notes](day06/day6challenge.md) | [Solution](day06/day6challenge.js)
+| [AOC 2021 Big Inputs (Big Boys)](https://the-tk.com/project/aoc2021-bigboys.html) | 6 | 2 | 9999999 | [Notes](day06/day6challenge.md) | [Solution](day06/day6challenge1.js)
