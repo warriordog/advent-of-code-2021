@@ -10,7 +10,7 @@ module.exports = {
     parseInput(path) {
         // Read input and split into double-newline-delimited segments
         const parts = fs.readFileSync(path, 'utf-8')
-            .split('\n\n')
+            .split(/(?:\n|\r\n){2}/gm)
         ;
 
         // Parse the first segment into a sequence of bingo inputs
@@ -23,7 +23,7 @@ module.exports = {
         const boards = parts.slice(1)
             .map(board => board
                 // Split each board into lines
-                .split('\n')
+                .split(/\n|\r\n/gm)
                 // Strip blank lines (handles trailing newline in file)
                 .filter(l => l.length > 0)
                 // Read all the numbers and parse them into cells
