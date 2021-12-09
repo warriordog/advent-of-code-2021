@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
+    "all": "npm run --silent day1 && npm run --silent day2 && npm run --silent day3 && npm run --silent day4 && npm run --silent day5 && npm run --silent day6 && npm run --silent day7 && npm run --silent day8 && npm run --silent day9",
     "day1": "npm run --silent day1:part1 && npm run --silent day1:part2",
     "day1:part1": "cd day01 && node day1part1.js",
     "day1:part2": "cd day01 && node day1part2.js",
