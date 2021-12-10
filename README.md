@@ -29,6 +29,7 @@ These are my solutions to the (ongoing) 2021 [Advent of Code](https://adventofco
 | 7 | The Treachery of Whales | [Notes](day07/day7.md) | [Part 1](day07/day7part1.js) | [Part 2](day07/day7part2.js)|
 | 8 | Seven Segment Search | [Notes](day08/day8.md) | [Part 1](day08/day8part1.js) | [Part 2](day08/day8part2.js)|
 | 9 | Smoke Basin | [Notes](day09/day9.md) | [Part 1](day09/day9part1.js) | [Part 2](day09/day9part2.js)|
+| 10 | Syntax Scoring | [Notes](day10/day10.md) | [Part 1](day10/day10part1.js) | [Part 2](day10/day10part2.js)|
 
 ## Challenge Solutions
 

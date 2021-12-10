@@ -38,7 +38,10 @@
     "day8:part2": "cd day08 && node day8part2.js",
     "day9": "npm run --silent day9:part1 && npm run --silent day9:part2",
     "day9:part1": "cd day09 && node day9part1.js",
-    "day9:part2": "cd day09 && node day9part2.js"
+    "day9:part2": "cd day09 && node day9part2.js",
+    "day10": "npm run --silent day10:part1 && npm run --silent day10:part2",
+    "day10:part1": "cd day10 && node day10part1.js",
+    "day10:part2": "cd day10 && node day10part2.js"
   },
   "keywords": [
     "AOC",
