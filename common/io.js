@@ -31,5 +31,18 @@ module.exports = {
             .flatMap(match => match[0])
             .map(n => parseInt(n))
         ;
+    },
+
+
+    /**
+     * Reads a grid of integers from a file
+     * @param {string} path
+     * @returns {number[][]}
+     */
+    readIntsGrid(path) {
+        return this.readLines(path)
+            .map(line => line
+                .split('')
+                .map(n => parseInt(n)));
     }
 };
