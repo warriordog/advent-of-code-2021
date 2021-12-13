@@ -1,4 +1,4 @@
-const fs = require("fs");
+const io = require('../common/io.js');
 
 /** @typedef {{ size: number, squares: { num: number, marked: boolean }[][]}} Board*/
 
@@ -9,9 +9,7 @@ module.exports = {
      */
     parseInput(path) {
         // Read input and split into double-newline-delimited segments
-        const parts = fs.readFileSync(path, 'utf-8')
-            .split(/(?:\n|\r\n){2}/gm)
-        ;
+        const parts = io.readSections(path);
 
         // Parse the first segment into a sequence of bingo inputs
         const numbers = parts[0]

@@ -7,9 +7,10 @@ module.exports = {
      * @returns {string[]}
      */
     readLines(path) {
-        return fs.readFileSync(path, 'utf-8')
-            .split(/[\r\n]/gm)
-            .filter(l => l.length > 0);
+        const text = fs.readFileSync(path, 'utf-8');
+        return this.splitLines(text)
+            .filter(l => l.length > 0)
+        ;
     },
 
     /**
@@ -18,7 +19,9 @@ module.exports = {
      * @returns {number[]}
      */
     readInts(path) {
-        return this.readLines(path).map(l => parseInt(l));
+        return this.readLines(path)
+            .map(l => parseInt(l))
+        ;
     },
 
     /**
@@ -27,7 +30,8 @@ module.exports = {
      * @returns {number[]}
      */
     readIntsLine(path) {
-        return Array.from(fs.readFileSync(path, 'utf-8').matchAll(/\d+/gm))
+        const text = fs.readFileSync(path, 'utf-8');
+        return Array.from(text.matchAll(/\d+/gm))
             .flatMap(match => match[0])
             .map(n => parseInt(n))
         ;
@@ -43,6 +47,28 @@ module.exports = {
         return this.readLines(path)
             .map(line => line
                 .split('')
-                .map(n => parseInt(n)));
+                .map(n => parseInt(n)))
+        ;
+    },
+
+    /**
+     * Reads a list of double-newline-delimited sections
+     * @param {string} path
+     * @return {string[]}
+     */
+    readSections(path) {
+        return fs.readFileSync(path, 'utf-8')
+            .split(/(?:\n|\r\n){2}/gm)
+            .filter(l => l.length > 0)
+        ;
+    },
+
+    /**
+     * Splits a string into individual lines
+     * @param {string} lines
+     * @return {string[]}
+     */
+    splitLines(lines) {
+        return lines.split(/\n|\r\n/gm);
     }
 };
