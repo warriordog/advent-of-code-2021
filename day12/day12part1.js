@@ -1,48 +1,44 @@
 const { parseInput } = require('./day12common.js');
 
+// Map the cave
 const caveSystem = parseInput('input.txt');
 
 /** @typedef {import('./day12common.js').Cave} Cave */
 
 /**
+ * Generates a list of all paths from a cave to the end of the system
  * @param {Cave} from
  * @param {Set<Cave>} visited
  * @return {string[]}
  */
-function countPathsToEnd(from, visited) {
-    // If this is a small, cave then mark as visited
-    if (!from.isBig) {
-        visited.add(from);
+function getPathsToEnd(from, visited) {
+    // Check if we've reached the end
+    if (from === caveSystem.end) {
+        return [ caveSystem.end.name ];
     }
 
-    /** @type {string[]} */
-    let paths = [];
+    // Prevent double-counting caves
+    visited.add(from);
 
-    // Add each connection
-    for (const next of from.connections) {
-        // If next is the end, then count it as 1
-        if (next === caveSystem.end) {
-            // Add path to end
-            paths.push(from.name + ',' + caveSystem.end.name);
+    const paths = from.connections
+        // Skip excluded caves
+        .filter(cave => cave.isBig || !visited.has(cave))
 
-        } else {
-            // Skip caves that we've already visited
-            if (!visited.has(next)) {
-                // Compute its depth and add the paths
-                paths = paths.concat(countPathsToEnd(next, visited).map(pEnd => from.name + ',' + pEnd));
-            }
-        }
-    }
+        // Get all paths to the end
+        .flatMap(next => getPathsToEnd(next, visited))
 
-    // Reset "visited" for the next path
-    if (!from.isBig) {
-        visited.delete(from);
-    }
+        // Prepend the current cave's name (we are building backwards)
+        .map(path => from.name + ',' + path)
+    ;
+
+    // Allow cave to be entered again for next path
+    visited.delete(from);
 
     return paths;
 }
 
-const pathsFromStart = countPathsToEnd(caveSystem.start, new Set())
+// Start mapping from the entrance
+const pathsFromStart = getPathsToEnd(caveSystem.start, new Set());
 
 // Uncomment below to show paths:
 // pathsFromStart.sort();

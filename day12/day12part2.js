@@ -1,226 +1,56 @@
 const { parseInput } = require('./day12common.js');
 
+// Map the cave
 const caveSystem = parseInput('input.txt');
 
 /** @typedef {import('./day12common.js').Cave} Cave */
 
-class State {
-    /** @param {State} [parent] */
-    constructor(parent) {
-        /** @type {State | undefined} */
-        this._parent = parent;
-        /** @type {Set<Cave> | null} */
-        this._visited = null;
-        /** @type {Set<Cave> | null} */
-        this._visiting = null;
-        /** @type {Map<Cave, string[]> | null} */
-        this._memoizedPaths = null;
-        /** @type {boolean | null} */
-        this._visitedSmallTwice = null;
-    }
-
-    /**
-     * @param {Cave} cave
-     * @returns {boolean}
-     */
-    hasVisited(cave) {
-        if (this._visited && this._visited.has(cave)) return true;
-        if (this._parent) return this._parent.hasVisited(cave);
-        return false;
-    }
-
-    /** @param {Cave} cave */
-    setVisited(cave) {
-        if (!this._visited) {
-            this._visited = new Set();
-        }
-
-        this._visited.add(cave);
-    }
-
-    /**
-     * @param {Cave} cave
-     * @returns {boolean}
-     */
-    isVisiting(cave) {
-        if (this._visiting && this._visiting.has(cave)) return true;
-        if (this._parent) return this._parent.isVisiting(cave);
-
-        return this._visiting.has(cave);
-    }
-
-    /** @param {Cave} cave */
-    setVisiting(cave) {
-        if (!this._visiting) {
-            this._visiting = new Set();
-        }
-
-        this._visiting.add(cave);
-    }
-
-    /** @returns {boolean} */
-    hasVisitedSmallTwice() {
-        if (this._visitedSmallTwice === true) return true;
-        if (this._parent) return this._parent.hasVisitedSmallTwice();
-        return false;
-    }
-
-    setVisitedSmallTwice() {
-        this._visitedSmallTwice = true;
-    }
-
-    /** @param {Cave} cave */
-    hasMemoizedPath(cave) {
-        if (this._memoizedPaths && this._memoizedPaths.has(cave)) return true;
-        if (this._parent) return this._parent.hasMemoizedPath(cave);
-        return false;
-    }
-
-
-    /**
-     * @param {Cave} cave
-     * @returns {string[] | undefined}
-     */
-    getMemoizedPath(cave) {
-        if (this._memoizedPaths && this._memoizedPaths.has(cave)) return this._memoizedPaths.get(cave);
-        if (this._parent) return this._parent.getMemoizedPath(cave);
-        return undefined;
-    }
-
-    /**
-     * @param {Cave} cave
-     * @param {string[]} path
-     */
-    setMemoizedPath(cave, path) {
-        if (!this._memoizedPaths) this._memoizedPaths = new Map();
-        this._memoizedPaths.set(cave, path);
-    }
-
-    /** @param {Cave} cave */
-    enterCave(cave) {
-        // Mark as visiting
-        this.setVisiting(cave);
-
-        if (!cave.isBig) {
-            // Update visitedSmallTwice flag
-            if (cave !== caveSystem.start && this.hasVisited(cave)) {
-                this.setVisitedSmallTwice();
-            }
-
-            // Mark small caves as visited
-            this.setVisited(cave);
-        }
-    }
-
-    reset() {
-        this._visited = null;
-        this._visiting = null;
-        this._memoizedPaths = null;
-        this._visitedSmallTwice = null;
-    }
-}
-
 /**
- * @param {Cave} to
- * @param {State} state
- * @returns {boolean}
- */
-function canVisit(to, state) {
-    // We cannot return to the starting room
-    if (to === caveSystem.start) return false;
-
-    // We can always visit big caves
-    if (to.isBig) return true;
-
-    // We can visit a small cave if it has never been visited
-    if (!state.hasVisited(to)) return true;
-
-    // We can visit a small cave twice IF we haven't done so already
-    if (!state.hasVisitedSmallTwice()) return true;
-
-    // Otherwise, we cannot visit
-    return false;
-}
-
-/**
+ * Generates a list of all paths from a cave to the end of the system
  * @param {Cave} from
- * @param {State} state
+ * @param {Map<Cave, number>} visited
+ * @param {boolean} visitedSmallTwice
  * @return {string[]}
  */
-function countPathsToEnd(from, state) {
-    // Update state
-    state.enterCave(from);
-
-    // Use memoized path if possible
-    // TODO this might not work
-    // if (state.hasMemoizedPath(from)) {
-    //     return state.getMemoizedPath(from);
-    // }
-
-    /** @type {string[]} */
-    let paths = [];
-
-    // Create shared child state
-    const nextState = new State(state);
-
-    // No memoized path, compute directly
-    for (const next of from.connections) {
-        // Clear state for next child
-        nextState.reset();
-
-        // If next is the end, then count it as 1
-        if (next === caveSystem.end) {
-            // Add path
-            paths.push(from.name + ',' + caveSystem.end.name);
-            // console.log(paths[paths.length - 1]);
-
-        } else if (canVisit(next, nextState)) {
-            // Compute its depth and add the paths
-            paths = paths.concat(countPathsToEnd(next, nextState).map(pEnd => from.name + ',' + pEnd));
-        }
+function getPathsToEnd(from, visited, visitedSmallTwice) {
+    // Check if we've reached the end
+    if (from === caveSystem.end) {
+        return [ caveSystem.end.name ];
     }
 
+    // Prevent double-counting caves
+    const visitCount = (visited.get(from) || 0) + 1;
+    visited.set(from, visitCount);
+
+    // Check if we've visited a small cave twice
+    if (!from.isBig && visitCount > 1) {
+        visitedSmallTwice = true;
+    }
+
+    const paths = from.connections
+        // Prevent going back to start
+        .filter(next => next !== caveSystem.start)
+
+        // We can go into big caves, new caves, or the same small cave twice IF we haven't done it already
+        .filter(cave => cave.isBig || !visited.has(cave) || visited.get(cave) < 1 || !visitedSmallTwice)
+
+        // Get all paths to the end
+        .flatMap(next => getPathsToEnd(next, visited, visitedSmallTwice))
+
+        // Prepend the current cave's name (we are building backwards)
+        .map(path => from.name + ',' + path)
+    ;
+
+    // Allow cave to be entered again for next path
+    visited.set(from, visitCount - 1);
+
     return paths;
-
-
-    // /** @type {string[]} */
-    // let paths = [];
-    //
-    // // Use memoized depth, if possible
-    // if (from.paths !== null) {
-    //     paths = from.paths;
-    // }
-    //
-    // // If cave has no memoized depth, then compute it
-    // else {
-    //     // Add each connection
-    //     for (const next of from.connections) {
-    //         // If next is the end, then count it as 1
-    //         if (next === caveSystem.end) {
-    //             // Add path
-    //             paths.push(from.name + ',' + caveSystem.end.name);
-    //
-    //         } else if (canVisit(next, state)) {
-    //             // Compute its depth and add the paths
-    //             paths = paths.concat(countPathsToEnd(next, state).map(pEnd => from.name + ',' + pEnd));
-    //         }
-    //     }
-    //
-    //     // Memoize the new depth UNlESS we are already visiting upstream
-    //     if (!state.visiting) {
-    //         from.paths = paths;
-    //     }
-    // }
-    //
-    // // Reset "visited" for the next path
-    // if (!from.isBig) {
-    //     state.visited.delete(from);
-    // }
-    //
-    // return paths;
 }
 
-const pathsFromStart = countPathsToEnd(caveSystem.start, new State());
+// Find all paths
+const pathsFromStart = getPathsToEnd(caveSystem.start, new Map(), false);
+
+// Uncomment to show paths (WARNING takes a LONG time there are almost 100K paths)
 // pathsFromStart.sort();
 // for (const path of pathsFromStart) {
 //     console.log(path);

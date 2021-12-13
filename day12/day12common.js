@@ -3,9 +3,8 @@ const io = require('../common/io.js');
 /**
  * @typedef {object} Cave A single cave within a cave system
  * @property {string} name Name of the cave
- * @property {boolean} isBig If true, the cave is "big" and can be entered more than once
+ * @property {boolean} isBig If true, the cave is "big" and can be entered multiple times
  * @property {Cave[]} connections All caves that connect to this one
- * @property {string[] | null} paths Memoized list of paths to the end. Null if not computed.
  */
 
 /**
@@ -34,8 +33,7 @@ module.exports = {
                 cave = {
                     name,
                     isBig: /^[A-Z]\w*$/.test(name),
-                    connections: [],
-                    paths: null
+                    connections: []
                 };
                 caves.set(name, cave);
             }
