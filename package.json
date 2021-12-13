@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "all": "npm run --silent day1 && npm run --silent day2 && npm run --silent day3 && npm run --silent day4 && npm run --silent day5 && npm run --silent day6 && npm run --silent day7 && npm run --silent day8 && npm run --silent day9",
+    "all": "npm run --silent day1 && npm run --silent day2 && npm run --silent day3 && npm run --silent day4 && npm run --silent day5 && npm run --silent day6 && npm run --silent day7 && npm run --silent day8 && npm run --silent day9 && npm run --silent day10 && npm run --silent day11 && npm run --silent day12",
     "day1": "npm run --silent day1:part1 && npm run --silent day1:part2",
     "day1:part1": "cd day01 && node day1part1.js",
     "day1:part2": "cd day01 && node day1part2.js",
@@ -44,7 +44,10 @@
     "day10:part2": "cd day10 && node day10part2.js",
     "day11": "npm run --silent day11:part1 && npm run --silent day11:part2",
     "day11:part1": "cd day11 && node day11part1.js",
-    "day11:part2": "cd day11 && node day11part2.js"
+    "day11:part2": "cd day11 && node day11part2.js",
+    "day12": "npm run --silent day12:part1 && npm run --silent day12:part2",
+    "day12:part1": "cd day12 && node day12part1.js",
+    "day12:part2": "cd day12 && node day12part2.js"
   },
   "keywords": [
     "AOC",

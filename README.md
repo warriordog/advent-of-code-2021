@@ -31,6 +31,7 @@ These are my solutions to the (ongoing) 2021 [Advent of Code](https://adventofco
 | 9 | Smoke Basin | [Notes](day09/day9.md) | [Part 1](day09/day9part1.js) | [Part 2](day09/day9part2.js)|
 | 10 | Syntax Scoring | [Notes](day10/day10.md) | [Part 1](day10/day10part1.js) | [Part 2](day10/day10part2.js)|
 | 11 | Dumbo Octopus | [Notes](day11/day11.md) | [Part 1](day11/day11part1.js) | [Part 2](day11/day11part2.js)|
+| 12 | Passage Pathing | [Notes](day12/day12.md) | [Part 1](day12/day12part1.js) | [Part 2](day12/day12part2.js)|
 
 ## Challenge Solutions
 
