@@ -69,6 +69,8 @@ module.exports = {
      * @return {string[]}
      */
     splitLines(lines) {
-        return lines.split(/\n|\r\n/gm);
+        return lines.split(/\n|\r\n/gm)
+            .filter(l => l.length > 0)
+        ;
     }
 };
