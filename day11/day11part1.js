@@ -8,4 +8,4 @@ for (let step = 0; step < 100; step++) {
     totalFlashes += doStep(grid);
 }
 
-console.log(`Day1 Part1: There were [${ totalFlashes }] flashes during 100 steps.`);
+console.log(`Day11 Part1: There were [${ totalFlashes }] flashes during 100 steps.`);

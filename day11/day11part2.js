@@ -9,4 +9,4 @@ for (let flashes = 0; flashes !== gridSize; flashes = doStep(grid)) {
     step++;
 }
 
-console.log(`Day1 Part2: All octopuses will flash on step [${ step }].`);
+console.log(`Day11 Part2: All octopuses will flash on step [${ step }].`);
