@@ -34,6 +34,7 @@ These are my solutions to the (ongoing) 2021 [Advent of Code](https://adventofco
 | 12 | Passage Pathing | [Notes](day12/day12.md) | [Part 1](day12/day12part1.js) | [Part 2](day12/day12part2.js)|
 | 13 | Transparent Origami | [Notes](day13/day13.md) | [Part 1](day13/day13part1.js) | [Part 2](day13/day13part2.js)|
 | 14 | Extended Polymerization | [Notes](day14/day14.md) | [Part 1](day14/day14part1.js) | [Part 2](day14/day14part2.js)|
+| 15 | Chiton | [Notes](day15/day15.md) | [Part 1](day15/day15part1.js) | [Part 2](day15/day15part2.js)|
 
 ## Challenge Solutions
 
