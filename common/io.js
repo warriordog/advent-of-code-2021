@@ -39,7 +39,7 @@ module.exports = {
 
 
     /**
-     * Reads a grid of integers from a file
+     * Reads a grid of integers from a file in y,x order
      * @param {string} path
      * @returns {number[][]}
      */

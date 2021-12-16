@@ -33,7 +33,7 @@ async function scaffold(dayName) {
     await fs.writeFile(commonPath, commonTemplate);
 
     // Generate part files
-    const dayFileTemplate = `const { parseInput } = require('${ commonName }');\n\n`;
+    const dayFileTemplate = `const { parseInput } = require('./${ commonName }');\n\n`;
 
     // Write part 1
     const part1Path = path.join(dir, filenamePrefix + 'part1.js');
