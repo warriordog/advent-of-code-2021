@@ -1,0 +1,7 @@
+# Day 16: Packet Decoder
+
+### Part 1
+To parse the input, I read the whole input into a 4-byte-aligned buffer and add another 4 bytes of padding. This allows me to index into the buffer using 32-bit windows which are then shifted down to 16-bit views, and then further aligned to an exact number of bits. This logic was placed into a single function which also keeps track of how many bits have been read, allowing upstream code to treat the input as a readable stream of numbers. This made for a very clean abstraction which greatly simplified the rest of the code.
+
+### Part 2
+I started part 2 with my existing part 1 code. I then removed an unneeded abstraction that separated literal and operator packets, allowing me to remove some redundant code paths. I then split my `parseOperatorPacket` function into a separate one for each type of operator packet, and merged that with `parseLiteralPacket` for a single parsing code path. I then discovered a problem with my implementation of `parseVariableNumber` - when shifting a 1 bit into position 32 of a number, the number becomes negative. I don't understand why this happens because JS uses 64-bit double-precision numbers that can handle up to 53-bit integers. I think that the number should stay positive until a 1 becomes shifted into position 63 (the sign bit), which shouldn't happen because I started with zero and only shifted by 32 bits. I'd love to hear an explanation for that is anyone knows why it happens. But in any case, I fixed it by making value a `bigint`.

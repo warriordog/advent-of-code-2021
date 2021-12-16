@@ -35,6 +35,7 @@ These are my solutions to the (ongoing) 2021 [Advent of Code](https://adventofco
 | 13 | Transparent Origami | [Notes](day13/day13.md) | [Part 1](day13/day13part1.js) | [Part 2](day13/day13part2.js)|
 | 14 | Extended Polymerization | [Notes](day14/day14.md) | [Part 1](day14/day14part1.js) | [Part 2](day14/day14part2.js)|
 | 15 | Chiton | [Notes](day15/day15.md) | [Part 1](day15/day15part1.js) | [Part 2](day15/day15part2.js)|
+| 16 | Packet Decoder | [Notes](day16/day16.md) | [Part 1](day16/day16part1.js) | [Part 2](day16/day16part2.js)|
 
 ## Challenge Solutions
 
